@@ -1,0 +1,98 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import { BLOG_TAGLINE } from "../../consts"
+import { siRss } from "simple-icons"
+import TechnologiesIcon from "../../components/TechnologiesIcon.astro"
+import { getCollection } from "astro:content"
+import Time from "../../components/Time.astro"
+
+const blogPosts = await getCollection("blog")
+blogPosts.sort(
+	(a, b) =>
+		(b.data.updatedDate ?? b.data.pubDate).getTime() -
+		(a.data.updatedDate ?? a.data.pubDate).getTime(),
+)
+---
+
+<Layout title="Blog - daimond113" description={BLOG_TAGLINE}>
+	<div class="w-full px-12">
+		<main class="mx-auto w-full max-w-content bg-body-bg">
+			<section class="mb-4">
+				<div class="flex items-center gap-4">
+					<h1 class="inline text-4xl font-bold">Blog</h1>
+					<TechnologiesIcon
+						{...siRss}
+						link="/rss.xml"
+						class="inline-block w-8 p-2"
+					/>
+				</div>
+				<p>{BLOG_TAGLINE}</p>
+			</section>
+			<div>
+				{
+					blogPosts.map(
+						({
+							data: {
+								title,
+								description,
+								pubDate,
+								heroImage,
+								listImage,
+								updatedDate,
+							},
+							slug,
+						}) => (
+							<div class="flex">
+								<div class="hidden w-24 shrink-0 grow items-center pr-4 md:flex md:w-48 lg:w-72">
+									<div class="relative w-full rounded-md border border-violet-400/25 p-2">
+										<p>
+											<span class="text-alt-text">Published on </span>
+											<Time date={pubDate} class="font-bold" />
+										</p>
+										{updatedDate && (
+											<p>
+												<span class="text-alt-text">Updated on </span>
+												<Time date={updatedDate} class="font-bold" />
+											</p>
+										)}
+									</div>
+								</div>
+								<div class="relative flex w-full items-center border-violet-400/25 py-2 md:border-l">
+									<div class="absolute -left-2 top-1/2 z-10 hidden size-4 -translate-y-1/2 rounded-full bg-violet-400 md:block" />
+									<a
+										href={`/blog/${slug}`}
+										class="relative z-10 inline-block w-full overflow-hidden rounded-md border border-violet-400/25 p-4 text-body-text no-underline md:ml-4"
+									>
+										<article>
+											<div class="mb-2 text-sm text-alt-text md:hidden">
+												<div>
+													<Time date={pubDate} class="font-bold" />
+												</div>
+												{updatedDate && (
+													<div>
+														Updated on{" "}
+														<Time date={updatedDate} class="font-bold" />
+													</div>
+												)}
+											</div>
+											<h2 class="text-xl font-semibold">{title}</h2>
+											<p>{description}</p>
+											{(listImage ?? heroImage) && (
+												<img
+													src={listImage ?? heroImage}
+													alt={`Hero image for ${title}`}
+													class="absolute right-0 top-1/2 z-0 inline-block w-2/3 -translate-y-1/2 text-right"
+													style="-webkit-mask-image: linear-gradient(to left, rgb(0 0 0 / 1), rgb(0 0 0 / 0)); mask-image: linear-gradient(to left, rgb(0 0 0 / 1), rgb(0 0 0 / 0));"
+												/>
+											)}
+										</article>
+									</a>
+								</div>
+							</div>
+						),
+					)
+				}
+			</div>
+		</main>
+	</div>
+</Layout>

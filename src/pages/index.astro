@@ -1,0 +1,276 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts"
+import Layout from "../layouts/Layout.astro"
+import TechnologiesIcon from "../components/TechnologiesIcon.astro"
+
+import {
+	siWindows,
+	siNotepadplusplus,
+	siHtml5,
+	siJavascript,
+	siCss3,
+	siVisualstudiocode,
+	siNodedotjs,
+	siNpm,
+	siReact,
+	siGit,
+	siGithub,
+	siTypescript,
+	siYarn,
+	siUbuntu,
+	siPopos,
+	siLua,
+	siRobloxstudio,
+	siPnpm,
+	siAstro,
+	siSolid,
+	siRust,
+	siArchlinux,
+	siKotlin,
+	siGradle,
+	siActix,
+	siSvelte,
+	siMysql,
+	siMariadb,
+	siCloudflare,
+	siAmazons3,
+	siVisualstudio,
+	siCplusplus,
+	siPhp,
+	siPhpmyadmin,
+	siBun,
+} from "simple-icons"
+---
+
+<style>
+	section:not(.widthless) {
+		@apply max-w-prose;
+	}
+
+	p {
+		@apply mb-2;
+	}
+
+	h2 {
+		@apply mb-2 text-2xl font-bold;
+	}
+
+	.rainbow {
+		@apply flex w-full px-12 py-6;
+	}
+
+	.rainbow > div {
+		@apply mx-auto w-full max-w-content;
+	}
+
+	.rainbow > div * {
+		@apply max-w-prose;
+	}
+
+	.rainbow p:last-of-type {
+		@apply mb-0;
+	}
+
+	.rainbow a {
+		@apply font-medium text-white;
+	}
+</style>
+
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<main class="flex w-full flex-col">
+		<div class="flex w-full px-12">
+			<div class="mx-auto flex max-w-content flex-col gap-12 bg-body-bg">
+				<section class="widthless text-balance">
+					<h1 class="mb-2 text-5xl font-bold">
+						Hello! I'm <span class="font-normal text-logo-text">daimond113</span
+						>
+					</h1>
+					<p class="text-3xl font-extralight">
+						I'm a passionate programmer ready to try new technologies and learn
+						new things
+					</p>
+				</section>
+				<section>
+					<h2>About me</h2>
+					<p>
+						I come from Poland, and coding has been a huge part of my life for
+						over 5 years.
+					</p>
+					<p>
+						In school, I was always the "computer guy" and that really
+						encouraged me to continue learning and improving my skills, whether
+						it be hardware or software.
+					</p>
+					<p>
+						I'm good at learning languages. I've always excelled in English, and
+						I'm currently learning German. In programming, I can understand the
+						syntax of new languages very quickly.
+					</p>
+				</section>
+				<section>
+					<h2>What I do</h2>
+					<p>
+						I'm a full-stack developer, which means I can work on both the frontend and
+						backend of a project. This allows me to create a complete product from
+						start to finish.
+					</p>
+				</section>
+				<section class="widthless">
+					<h2>Technologies I've used</h2>
+					<p class="!mb-4 max-w-prose">
+						This is a list of technologies I've used and/or am using. I'm always
+						looking to learn more, so this list is always growing. This list is
+						sorted by when I first used the technology.
+					</p>
+					<div class="flex w-full flex-wrap gap-2">
+						<TechnologiesIcon {...siWindows} link="https://www.microsoft.com" />
+						<TechnologiesIcon
+							{...siNotepadplusplus}
+							link="https://notepad-plus-plus.org"
+						/>
+						<TechnologiesIcon
+							{...siHtml5}
+							link="https://developer.mozilla.org/en-US/docs/Web/HTML"
+						/>
+						<TechnologiesIcon
+							{...siCss3}
+							link="https://developer.mozilla.org/en-US/docs/Web/CSS"
+						/>
+						<TechnologiesIcon
+							{...siJavascript}
+							link="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+						/>
+						<TechnologiesIcon
+							{...siVisualstudiocode}
+							link="https://code.visualstudio.com"
+						/>
+						<TechnologiesIcon {...siNodedotjs} link="https://nodejs.org" />
+						<TechnologiesIcon {...siNpm} link="https://npmjs.com" />
+						<TechnologiesIcon {...siReact} link="https://react.dev" />
+						<TechnologiesIcon {...siGit} link="https://git-scm.com" />
+						<TechnologiesIcon {...siGithub} link="https://github.com" />
+						<TechnologiesIcon
+							{...siTypescript}
+							link="https://www.typescriptlang.org"
+						/>
+						<TechnologiesIcon {...siYarn} link="https://yarnpkg.com" />
+						<TechnologiesIcon {...siUbuntu} link="https://ubuntu.com" />
+						<TechnologiesIcon {...siPopos} link="https://pop.system76.com" />
+						<TechnologiesIcon {...siLua} link="https://www.lua.org" />
+						<TechnologiesIcon
+							{...siRobloxstudio}
+							link="https://www.roblox.com"
+						/>
+						<TechnologiesIcon {...siPnpm} link="https://pnpm.io" />
+						<TechnologiesIcon {...siAstro} link="https://astro.build" />
+						<TechnologiesIcon {...siSolid} link="https://solidjs.com" />
+						<TechnologiesIcon {...siRust} link="https://www.rust-lang.org" />
+						<TechnologiesIcon {...siArchlinux} link="https://archlinux.org" />
+						<TechnologiesIcon {...siKotlin} link="https://kotlinlang.org" />
+						<TechnologiesIcon {...siGradle} link="https://gradle.org" />
+						<TechnologiesIcon {...siActix} link="https://actix.rs" />
+						<TechnologiesIcon {...siSvelte} link="https://svelte.dev" />
+						<TechnologiesIcon {...siMysql} link="https://www.mysql.com" />
+						<TechnologiesIcon {...siMariadb} link="https://mariadb.org" />
+						<TechnologiesIcon
+							{...siCloudflare}
+							link="https://www.cloudflare.com"
+						/>
+						<TechnologiesIcon
+							{...siAmazons3}
+							link="https://aws.amazon.com/s3"
+						/>
+						<TechnologiesIcon
+							{...siVisualstudio}
+							link="https://visualstudio.microsoft.com"
+						/>
+						<TechnologiesIcon {...siCplusplus} link="https://isocpp.org" />
+						<TechnologiesIcon {...siPhp} link="https://www.php.net" />
+						<TechnologiesIcon
+							{...siPhpmyadmin}
+							link="https://www.phpmyadmin.net"
+						/>
+						<TechnologiesIcon {...siBun} link="https://bun.sh" />
+					</div>
+				</section>
+				<section>
+					<h2>My stuff</h2>
+					<p>
+						My "main" projects are listed here by their primary colour. More
+						minor projects can be found in my <a
+							href="https://github.com/daimond113"
+							target="_blank">GitHub</a
+						> repositories.
+					</p>
+				</section>
+			</div>
+		</div>
+		<div class="w-full text-white">
+			<div class="rainbow bg-red-800">
+				<div>
+					<p>Nothing here yet</p>
+				</div>
+			</div>
+			<div class="rainbow bg-orange-800">
+				<div>
+					<h2>pesde</h2>
+					<p>pesde is a feature-rich package manager for Roblox.</p>
+					<p>
+						It's built with Rust and uses a GitHub repository as it's index.
+					</p>
+					<p>
+						You can find the source code on <a
+							href="https://github.com/daimond113/pesde"
+							target="_blank">GitHub</a
+						>. Visit the <a
+							href="https://pesde.daimond113.com"
+							class="underline"
+							target="_blank">website</a
+						> to see the available packages and documentation. You can also look
+						at the raw <a
+							href="https://github.com/daimond113/pesde-index"
+							target="_blank">index</a
+						> for a more detailed look at how it works.
+					</p>
+				</div>
+			</div>
+			<div class="rainbow bg-yellow-800">
+				<div>
+					<p>Nothing here yet</p>
+				</div>
+			</div>
+			<div class="rainbow bg-green-800">
+				<div>
+					<h2>biasdo</h2>
+					<p>biasdo is an open-source chat application that I'm working on.</p>
+					<p>
+						It's built with a Rust backend using Actix and a Svelte frontend.
+					</p>
+					<p>
+						You can find the source code on <a
+							href="https://github.com/daimond113/biasdo"
+							target="_blank">GitHub</a
+						>. Visit the <a href="https://biasdo.daimond113.com" target="_blank"
+							>website</a
+						> to see it in action.
+					</p>
+				</div>
+			</div>
+			<div class="rainbow bg-blue-800">
+				<div>
+					<p>Nothing here yet</p>
+				</div>
+			</div>
+			<div class="rainbow bg-violet-800">
+				<div>
+					<p>Nothing here yet</p>
+				</div>
+			</div>
+			<div class="rainbow bg-pink-800">
+				<div>
+					<p>Nothing here yet</p>
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>

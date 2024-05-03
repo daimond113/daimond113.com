@@ -1,0 +1,24 @@
+---
+import { twMerge } from "tailwind-merge"
+
+export interface Props {
+	title: string
+	svg: string
+	link: string
+	class?: string
+}
+
+const { title, svg, link, class: className } = Astro.props
+---
+
+<a
+	href={link}
+	{title}
+	class={twMerge(
+		"bg-violet-900 text-body-text p-3 rounded-md inline-block w-14 [&>svg]:fill-current flex-shrink-0",
+		className,
+	)}
+	target="_blank"
+>
+	<Fragment set:html={svg} /></a
+>

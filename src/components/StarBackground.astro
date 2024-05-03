@@ -1,0 +1,78 @@
+<script>
+	const COORDINATE_MULTIPLIER = 20000
+
+	const canvas = document.getElementById("star-background") as HTMLCanvasElement
+	const ctx = canvas.getContext("2d") as CanvasRenderingContext2D
+	if (!ctx) {
+		throw new Error("Failed to get 2d context")
+	}
+
+	const circles = [] as { x: number; y: number; z: number }[]
+	for (let i = 0; i < 300; i++) {
+		circles.push({
+			x: Math.random() * COORDINATE_MULTIPLIER,
+			y: Math.random() * COORDINATE_MULTIPLIER,
+			z: (Math.random() * 50 + 5) * 0.5,
+		})
+	}
+
+	const reduceMotionMedia = matchMedia("(prefers-reduced-motion: reduce)")
+	let reduceMotion = reduceMotionMedia.matches
+	reduceMotionMedia.addEventListener("change", (e) => {
+		reduceMotion = e.matches
+	})
+
+	let scale: number
+	function resize() {
+		canvas.width = window.innerWidth
+		canvas.height = window.innerHeight
+		scale = Math.max(1, window.innerWidth / 500)
+	}
+
+	addEventListener("resize", resize)
+	resize()
+
+	let prevTime: number
+
+	function draw(time: number) {
+		const deltaTime = time - (prevTime ?? time)
+		prevTime = time
+
+		if (reduceMotion) {
+			requestAnimationFrame(draw)
+			return
+		}
+
+		ctx.clearRect(0, 0, canvas.width, canvas.height)
+		ctx.fillStyle = "#DCCCFF"
+
+		for (const circle of circles) {
+			const x = (circle.x / circle.z) * scale
+			const y = (circle.y / circle.z) * scale
+
+			ctx.beginPath()
+			ctx.ellipse(
+				x,
+				y,
+				(15 / circle.z) * scale,
+				(15 / circle.z) * scale,
+				0,
+				0,
+				2 * Math.PI,
+			)
+			ctx.fill()
+
+			circle.x = (circle.x + 0.015 * deltaTime) % COORDINATE_MULTIPLIER
+			circle.y = (circle.y + 0.025 * deltaTime) % COORDINATE_MULTIPLIER
+		}
+
+		requestAnimationFrame(draw)
+	}
+
+	requestAnimationFrame(draw)
+</script>
+
+<canvas
+	id="star-background"
+	class="fixed left-0 top-0 -z-20 block h-screen w-full bg-transparent"
+	transition:persist></canvas>
