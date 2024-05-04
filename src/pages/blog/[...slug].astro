@@ -21,7 +21,7 @@ const {
 const { Content } = await render()
 ---
 
-<Layout {title} {description} image={heroImage || listImage}>
+<Layout {title} {description} image={heroImage || listImage} prose>
 	<Fragment slot="head">
 		<meta property="og:type" content="article" />
 		<meta property="article:published_time" content={pubDate.toISOString()} />
@@ -39,7 +39,7 @@ const { Content } = await render()
 
 	<div class="flex w-full px-12">
 		<main
-			class="prose prose-main relative mx-auto w-full max-w-content bg-body-bg"
+			class="prose prose-main relative mx-auto w-full max-w-prose bg-body-bg"
 		>
 			<a href="/blog" class="flex items-center no-underline">
 				<ArrowLeft class="mr-2 size-6" />
