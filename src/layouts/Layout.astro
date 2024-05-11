@@ -2,7 +2,7 @@
 import "../global.css"
 import "@fontsource-variable/dm-sans"
 import logo from "../../public/logotype.svg?raw"
-import TechnologiesIcon from "../components/TechnologiesIcon.astro"
+import IconButton from "../components/IconButton.astro"
 import StarBackground from "../components/StarBackground.astro"
 import { ViewTransitions } from "astro:transitions"
 
@@ -96,32 +96,32 @@ const w = prose ? "max-w-prose" : "max-w-content"
 		<div class=`flex ${w} w-full items-center py-16`>
 			<div class="flex flex-col gap-2">
 				<div class="flex w-full gap-2">
-					<TechnologiesIcon
+					<IconButton
 						{...siDiscord}
 						link="https://discord.com/users/1232371891990302820"
 						class="w-10 p-2"
 					/>
-					<TechnologiesIcon
+					<IconButton
 						{...siX}
 						link="https://twitter.com/dev_daimond113"
 						class="w-10 p-2"
 					/>
-					<TechnologiesIcon
+					<IconButton
 						{...siTiktok}
 						link="https://tiktok.com/@official.daimond113"
 						class="w-10 p-2"
 					/>
-					<TechnologiesIcon
+					<IconButton
 						{...siYoutube}
 						link="https://youtube.com/@daimond113"
 						class="w-10 p-2"
 					/>
-					<TechnologiesIcon
+					<IconButton
 						{...siGithub}
 						link="https://github.com/daimond113"
 						class="w-10 p-2"
 					/>
-					<TechnologiesIcon
+					<IconButton
 						{...siBuymeacoffee}
 						link="https://buymeacoff.ee/daimond113"
 						class="w-10 p-2"

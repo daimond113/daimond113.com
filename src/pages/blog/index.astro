@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro"
 import { BLOG_TAGLINE } from "../../consts"
 import { siRss } from "simple-icons"
-import TechnologiesIcon from "../../components/TechnologiesIcon.astro"
+import IconButton from "../../components/IconButton.astro"
 import { getCollection } from "astro:content"
 import Time from "../../components/Time.astro"
 
@@ -20,7 +20,7 @@ blogPosts.sort(
 			<section class="mb-4">
 				<div class="flex items-center gap-4">
 					<h1 class="inline text-4xl font-bold">Blog</h1>
-					<TechnologiesIcon
+					<IconButton
 						{...siRss}
 						link="/rss.xml"
 						class="inline-block w-8 p-2"
