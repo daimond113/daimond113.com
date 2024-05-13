@@ -38,10 +38,10 @@ const w = prose ? "max-w-prose" : "max-w-content"
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
-	
+
 		<!-- Canonical URL -->
 		<link rel="canonical" href={canonicalURL} />
-	
+
 		<!-- Primary Meta Tags -->
 		<title>{title}</title>
 		<meta name="title" content={title} />
@@ -54,27 +54,27 @@ const w = prose ? "max-w-prose" : "max-w-content"
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7b63d9" />
 		<meta name="msapplication-TileColor" content="#603cba" />
 		<meta name="theme-color" content="#7B63D9" />
-	
+
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.url} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={new URL(image, Astro.url)} />
-	
+
 		<meta property="twitter:card" content="summary_small_image" />
 		<meta property="twitter:url" content={Astro.url} />
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content={new URL(image, Astro.url)} />
-	
+
 		<slot name="head" />
-	
+
 		<ViewTransitions />
 	</head>
-	
+
 	<body class="flex min-h-screen flex-col bg-body-bg pt-52 text-body-text">
 		<StarBackground />
-	
+
 		<header
 			class="fixed top-0 z-10 flex h-14 w-full bg-body-bg/40 px-12 py-2 backdrop-blur-lg"
 		>
@@ -82,15 +82,15 @@ const w = prose ? "max-w-prose" : "max-w-content"
 				<a href="/" class="[&>svg]:h-full" aria-label="Main page">
 					<Fragment set:html={logo} />
 				</a>
-	
+
 				<div class="ml-auto flex h-full items-center">
 					<a href="/blog" class="text-body-text no-underline"> Blog </a>
 				</div>
 			</div>
 		</header>
-	
+
 		<slot />
-	
+
 		<footer
 			class="mt-20 flex w-full grow justify-center border-t border-violet-400/25 bg-body-bg px-12"
 		>
