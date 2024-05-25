@@ -1,3 +1,7 @@
 a {
 	@apply text-body-link underline underline-offset-2;
 }
+
+* {
+	@apply scroll-m-14;
+}

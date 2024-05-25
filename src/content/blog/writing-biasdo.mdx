@@ -1,0 +1,123 @@
+---
+title: "Writing biasdo"
+description: "A summary of my experience (re)writing biasdo"
+pubDate: "May 25 2024"
+---
+
+So, I rewrote biasdo.
+
+biasdo is my chat app, which I wanted to write for a few years, but previously haven't had the knowledge to do so properly.
+
+## Pre-rewrite
+
+### Frontend
+
+I've tried using NextJS, Remix, and even SolidStart, but none of them worked out for me. This caused me severe burn-out, and I stopped working on biasdo for a few months.
+Then one day I watched a video about Svelte, which motivated me to try SvelteKit. This was
+the framework that worked, unlike the previous ones [mainly due to my lack of previous knowledge](#server-side-rendering-of-the-frontend).
+
+### Backend
+
+First I tried using Firebase, but it didn't work [how I wanted to use it](#backend-structure), then I tried using
+the frontend's server which didn't work out due to the frameworks not being meant to be used like traditional backends on the scale I wanted to use them,
+and an external realtime data provider, namely Ably, but that didn't work out either.
+
+For some reason, Ably was
+quite slow for me, but I believe it was because of the way I used it, which most likely was not the intended way.
+I also read about Pusher, but after reading the opinions of others it seemed that Ably was the better choice, so I went with that.
+I would've tried Pusher after seeing that Ably didn't work out, but I was just too exhausted to try another service, which is why
+the backend uses its own WebSocket server.
+
+## Stack choice
+
+After all my attempts, I landed on a combination of SvelteKit and actix-web. This turned out to be the stack that worked best for me.
+I like how Svelte works, and actix-web is a really fast and reliable web framework for Rust (though the middleware system can be a pain).
+
+When I first got a basic version of biasdo working, I was really happy with the result, and published it on the web.
+Unfortunately, this version only contained basic functionality, so no updating of data, no data deletion, and only a basic authentication system.
+This is why I decided to rewrite it again, now with the knowledge I gained from making the first actually _usable_ version.
+
+### Backend structure
+
+The usage of the backend is quite simple:
+
+1. The frontend connects to the WebSocket server
+2. The frontend sends an HTTP request to the backend to get the initial data it needs
+3. The WebSocket server sends updates to the frontend
+
+This structure allows for the frontend to be updated with new data in real-time, without the need to poll the backend for new data.
+
+Before the rewrite steps 1 and 2 were executed at the same time, which caused [issues](#data-loading).
+
+## Rewrite
+
+The rewrite allowed me to make the user interface cleaner, and for the backend having recently made another actix-web backend (for [pesde](https://pesde.daimond113.com))
+during which creation I learned a lot about actix-web, I was able to make the backend much cleaner and use better practices as well.
+
+Overall, I managed to cross some things off my TODO list:
+
+- Implement [OAuth](#oauth)
+- Implement data updating and deletion
+- Improve the user interface
+- Add rate limiting
+- Add a friend system
+
+### Issues spotted during the rewrite
+
+#### Data loading
+
+Because of data updating and deletion, I noticed an issue with how the stores of data were populated. It had to do with me using [loader functions](https://kit.svelte.dev/docs/load) to populate the stores,
+which caused the stores to be repopulated with old data on every page navigation. This was fixed by using the `onMount` function to fetch & populate the stores,
+it's the reason the frontend now displays loading spinners when navigating between pages.
+
+Pre-rewrite biasdo had a possible race condition (which I hadn't spotted due to the lack of data updates) where the WebSocket would connect
+_after_ the data was loaded, which would cause the data to be outdated. An example of this issue:
+
+1. The user navigates to a channel page
+2. The user fetches the messages in this channel
+3. Some other user sends a message to this channel
+4. Only now the WebSocket connects, and the message is not received
+
+This was fixed by connecting the WebSocket and [only then fetching the data](https://github.com/daimond113/biasdo/blob/961a69de5ca631c53eabca7cc697fa48e79dc6b3/packages/client/src/lib/stores.ts#L535-L537).
+
+#### Storing data
+
+I previously stored the data by using an array of objects, which was not the best way to store this kind of data, especially since it has unique identifiers.
+There was also an uncommon, yet possible issue where the binary search used to find the data would not find the data, which then errored because virtual lists used
+to render messages and members need a unique key for each item.
+
+Having learned what a BTreeMap is from using Rust, I decided to use that structure to store the data, which allowed me to easily update and delete data, but also to easily find data.
+I decided on using a BTreeMap because when rendering the data, I want it to be sorted, and a BTreeMap is sorted by default.
+I could of course use a Map and sort it when rendering, but then I'd have to sort it every time I render the data, which is not ideal.
+
+Using a BTreeMap solved a lot of issues I had with the data, and I am happy with the choice I made.
+
+#### Server-side rendering of the frontend
+
+I noticed a lot of the issues I had were caused by the frontend being rendered on the server because of the WebSocket connection (and it being pretty unreliable).
+I fixed this by adding `export const ssr = false` in the `+layout.svelte` file, which fixed a lot of the issues I had with the frontend.
+I did not look deeper into why that was until when I began the rewrite, which is why I didn't know why the other frameworks didn't work for me.
+Despite this, I am happy with SvelteKit the most out of all the frameworks I've tried, so I am happy with the choice I made.
+
+### OAuth
+
+When looking at implementing OAuth2 I also noticed the in-progress specification for OAuth2.1, which I decided to implement instead of OAuth2.
+It's mainly backwards-compatible, but some deprecated features have been removed (implicit grant for example). To not overcomplicate the backend
+with features which I'd have to remove later, I decided to implement OAuth2.1 from the start, despite it not being finalized yet.
+
+I also decided to not use a crate for OAuth and instead implement it on my own, which allowed me to learn a lot about OAuth and how it works.
+Most likely I have made some mistakes, but if I spot them, I'll fix them.
+
+## Next steps
+
+The next steps are:
+
+- Implementing attachments and icons (for users, servers, and OAuth clients)
+- Implementing WebAuthn for user authentication (and therefore allowing passwordless logins with a security key)
+- Implementing voice/video chatting (using WebRTC)
+- Adding a blocking system
+- Creating a server permissions system
+- And possibly implementing user-configurable themes (though I am not sure about this one yet)
+
+Working on the rewrite was unfortunately a very exhausting process, but I am happy with the result. I will most likely
+be taking a longer break from working on biasdo, but I am looking forward to working on it again in the future.
