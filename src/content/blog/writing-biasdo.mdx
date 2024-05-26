@@ -1,7 +1,8 @@
 ---
 title: "Writing biasdo"
 description: "A summary of my experience (re)writing biasdo"
-pubDate: "May 25 2024"
+pubDate: "May 25 2024 22:00 GMT+2"
+updatedDate: "May 26 2024 9:20 GMT+2"
 ---
 
 So, I rewrote biasdo.
@@ -94,9 +95,12 @@ Using a BTreeMap solved a lot of issues I had with the data, and I am happy with
 
 #### Server-side rendering of the frontend
 
-I noticed a lot of the issues I had were caused by the frontend being rendered on the server because of the WebSocket connection (and it being pretty unreliable).
-I fixed this by adding `export const ssr = false` in the `+layout.svelte` file, which fixed a lot of the issues I had with the frontend.
-I did not look deeper into why that was until when I began the rewrite, which is why I didn't know why the other frameworks didn't work for me.
+I noticed a lot of the issues I had were caused by the frontend being rendered on the server because of the WebSocket connection,
+which I'd have trouble connecting to reliably because of the server-side rendering. Fixing this would've required
+using 2 connections (one for the server and one for the client), but that would lead to [issues](#data-loading) with the data loading.
+
+I fixed this by adding `export const ssr = false` in the `+layout.ts` file, however I did not look deeper into why that was until when I began the rewrite.
+This turned out to be why the other frameworks didn't work out for me.
 Despite this, I am happy with SvelteKit the most out of all the frameworks I've tried, so I am happy with the choice I made.
 
 ### OAuth
