@@ -4,12 +4,10 @@ import Layout from "../layouts/Layout.astro"
 import IconButton from "../components/IconButton.astro"
 
 import {
-	siWindows,
 	siNotepadplusplus,
 	siHtml5,
 	siJavascript,
 	siCss3,
-	siVisualstudiocode,
 	siNodedotjs,
 	siNpm,
 	siReact,
@@ -34,11 +32,11 @@ import {
 	siMariadb,
 	siCloudflare,
 	siAmazons3,
-	siVisualstudio,
 	siCplusplus,
 	siPhp,
 	siPhpmyadmin,
 	siBun,
+	siNixos,
 } from "simple-icons"
 ---
 
@@ -123,7 +121,6 @@ import {
 						sorted by when I first used the technology.
 					</p>
 					<div class="flex w-full flex-wrap gap-2">
-						<IconButton {...siWindows} link="https://www.microsoft.com" />
 						<IconButton
 							{...siNotepadplusplus}
 							link="https://notepad-plus-plus.org"
@@ -139,10 +136,6 @@ import {
 						<IconButton
 							{...siJavascript}
 							link="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-						/>
-						<IconButton
-							{...siVisualstudiocode}
-							link="https://code.visualstudio.com"
 						/>
 						<IconButton {...siNodedotjs} link="https://nodejs.org" />
 						<IconButton {...siNpm} link="https://npmjs.com" />
@@ -171,14 +164,11 @@ import {
 						<IconButton {...siMariadb} link="https://mariadb.org" />
 						<IconButton {...siCloudflare} link="https://www.cloudflare.com" />
 						<IconButton {...siAmazons3} link="https://aws.amazon.com/s3" />
-						<IconButton
-							{...siVisualstudio}
-							link="https://visualstudio.microsoft.com"
-						/>
 						<IconButton {...siCplusplus} link="https://isocpp.org" />
 						<IconButton {...siPhp} link="https://www.php.net" />
 						<IconButton {...siPhpmyadmin} link="https://www.phpmyadmin.net" />
 						<IconButton {...siBun} link="https://bun.sh" />
+						<IconButton {...siNixos} link="https://nixos.org" />
 					</div>
 				</section>
 				<section>
@@ -202,7 +192,10 @@ import {
 			<div class="rainbow bg-orange-800">
 				<div>
 					<h2>pesde</h2>
-					<p>pesde is a feature-rich package manager for Roblox.</p>
+					<p>
+						pesde is a package manager for the Luau programming language,
+						supporting multiple runtimes including Roblox and Lune.
+					</p>
 					<p>
 						It's built with Rust and uses a GitHub repository as it's index.
 					</p>
