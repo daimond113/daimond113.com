@@ -6,19 +6,21 @@ export interface Props {
 	svg: string
 	link: string
 	class?: string
+	noFill?: boolean
 }
 
-const { title, svg, link, class: className } = Astro.props
+const { title, svg, link, class: className, noFill } = Astro.props
 ---
 
 <a
 	href={link}
 	{title}
 	class={twMerge(
-		"bg-violet-900 text-body-text p-3 rounded-md inline-block w-14 [&>svg]:fill-current flex-shrink-0 hover:scale-[1.15] hover:brightness-125 transition-all",
+		"bg-violet-900 text-body-text p-3 rounded-md inline-block w-14 flex-shrink-0 hover:scale-[1.15] hover:brightness-125 transition-all",
+		!noFill && "[&>svg]:fill-current",
 		className,
 	)}
 	target="_blank"
 >
-	<Fragment set:html={svg} /></a
->
+	<Fragment set:html={svg} />
+</a>
