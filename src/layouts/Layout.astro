@@ -9,9 +9,11 @@ import { ViewTransitions } from "astro:transitions"
 import {
 	siDiscord,
 	siX,
+	siBluesky,
 	siTiktok,
 	siYoutube,
 	siGithub,
+	siRoblox,
 	siBuymeacoffee,
 } from "simple-icons"
 
@@ -115,6 +117,11 @@ const w = prose ? "max-w-prose" : "max-w-content"
 							class="w-10 p-2"
 						/>
 						<IconButton
+							{...siBluesky}
+							link="https://bsky.app/profile/daimond113.com"
+							class="w-10 p-2"
+						/>
+						<IconButton
 							{...siTiktok}
 							link="https://tiktok.com/@official.daimond113"
 							class="w-10 p-2"
@@ -127,6 +134,11 @@ const w = prose ? "max-w-prose" : "max-w-content"
 						<IconButton
 							{...siGithub}
 							link="https://github.com/daimond113"
+							class="w-10 p-2"
+						/>
+						<IconButton
+							{...siRoblox}
+							link="https://www.roblox.com/users/386098925/profile"
 							class="w-10 p-2"
 						/>
 						<IconButton
