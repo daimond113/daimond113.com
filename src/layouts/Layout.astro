@@ -1,7 +1,8 @@
 ---
 import "../global.css"
 import "@fontsource-variable/dm-sans"
-import logo from "../../public/logotype.svg?raw"
+import logoType from "../../public/logotype.svg?raw"
+import logo from "../../public/logo.svg?raw"
 import IconButton from "../components/IconButton.astro"
 import StarBackground from "../components/StarBackground.astro"
 import { ViewTransitions } from "astro:transitions"
@@ -81,8 +82,13 @@ const w = prose ? "max-w-prose" : "max-w-content"
 			class="fixed top-0 z-10 flex h-14 w-full bg-body-bg/40 px-12 py-2 backdrop-blur-lg"
 		>
 			<div class=`mx-auto flex h-full ${w} w-full`>
-				<a href="/" class="[&>svg]:h-full" aria-label="Main page">
-					<Fragment set:html={logo} />
+				<a href="/" class="[&_svg]:h-full" aria-label="Main page">
+					<div class="contents sm:hidden">
+						<Fragment set:html={logo} />
+					</div>
+					<div class="hidden sm:contents">
+						<Fragment set:html={logoType} />
+					</div>
 				</a>
 
 				<div class="ml-auto flex h-full items-center">
@@ -98,7 +104,7 @@ const w = prose ? "max-w-prose" : "max-w-content"
 		>
 			<div class=`flex ${w} w-full items-center py-16`>
 				<div class="flex flex-col gap-2">
-					<div class="flex w-full gap-2">
+					<div class="flex w-full flex-wrap gap-2">
 						<IconButton
 							svg='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>'
 							noFill
