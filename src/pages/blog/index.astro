@@ -16,7 +16,7 @@ blogPosts.sort(
 
 <Layout title="Blog - daimond113" description={BLOG_TAGLINE}>
 	<div class="w-full px-12">
-		<main class="mx-auto w-full max-w-content bg-body-bg">
+		<main class="mx-auto w-full max-w-content bg-body-bg dark:bg-body-bg-dark">
 			<section class="mb-4">
 				<div class="flex items-center gap-4">
 					<h1 class="inline text-4xl font-bold">Blog</h1>
@@ -40,27 +40,31 @@ blogPosts.sort(
 						}) => (
 							<div class="flex">
 								<div class="hidden w-24 shrink-0 grow items-center pr-4 md:flex md:w-48 lg:w-72">
-									<div class="relative w-full rounded-md border border-violet-400/25 p-2">
+									<div class="relative w-full rounded-md border border-violet-500/75 p-2 dark:border-violet-400/25">
 										<p>
-											<span class="text-alt-text">Published on </span>
+											<span class="text-alt-text dark:text-alt-text-dark">
+												Published on{" "}
+											</span>
 											<Time date={pubDate} class="font-bold" />
 										</p>
 										{updatedDate && (
 											<p>
-												<span class="text-alt-text">Updated on </span>
+												<span class="text-alt-text dark:text-alt-text-dark">
+													Updated on{" "}
+												</span>
 												<Time date={updatedDate} class="font-bold" />
 											</p>
 										)}
 									</div>
 								</div>
-								<div class="relative flex w-full items-center border-violet-400/25 py-2 md:border-l">
-									<div class="absolute -left-2 top-1/2 z-10 hidden size-4 -translate-y-1/2 rounded-full bg-violet-400 md:block" />
+								<div class="relative flex w-full items-center border-violet-600/80 py-2 md:border-l dark:border-violet-400/25">
+									<div class="absolute -left-2 top-1/2 z-10 hidden size-4 -translate-y-1/2 rounded-full bg-violet-900 md:block dark:bg-violet-400" />
 									<a
 										href={`/blog/${slug}`}
-										class="relative z-10 inline-block w-full overflow-hidden rounded-md border border-violet-400/25 p-4 text-body-text no-underline md:ml-4"
+										class="relative z-10 inline-block w-full overflow-hidden rounded-md border border-violet-500/75 p-4 text-body-text no-underline md:ml-4 dark:border-violet-400/25 dark:text-body-text-dark"
 									>
 										<article>
-											<div class="mb-2 text-sm text-alt-text md:hidden">
+											<div class="mb-2 text-sm text-alt-text md:hidden dark:text-alt-text-dark">
 												<div>
 													<Time date={pubDate} class="font-bold" />
 												</div>

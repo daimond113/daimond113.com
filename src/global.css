@@ -1,5 +1,5 @@
 a {
-	@apply text-body-link underline underline-offset-2;
+	@apply text-body-link underline underline-offset-2 dark:text-body-link-dark;
 }
 
 * {

@@ -76,24 +76,35 @@ const w = prose ? "max-w-prose" : "max-w-content"
 		<ViewTransitions />
 	</head>
 
-	<body class="flex min-h-screen flex-col bg-body-bg pt-52 text-body-text">
+	<body
+		class="flex min-h-screen flex-col bg-body-bg pt-52 text-body-text dark:bg-body-bg-dark dark:text-body-text-dark"
+	>
 		<StarBackground />
 
 		<header
-			class="fixed top-0 z-10 flex h-14 w-full bg-body-bg/40 px-12 py-2 backdrop-blur-lg"
+			class="fixed top-0 z-10 flex h-14 w-full bg-body-bg/40 px-12 py-2 backdrop-blur-lg dark:bg-body-bg-dark/40"
 		>
 			<div class=`mx-auto flex h-full ${w} w-full`>
-				<a href="/" class="[&_svg]:h-full" aria-label="Main page">
+				<a
+					href="/"
+					class="text-logo-text dark:text-logo-text-dark [&_svg]:h-full"
+					aria-label="Main page"
+				>
 					<div class="contents sm:hidden">
-						<Fragment set:html={logo} />
+						<Fragment set:html={logo.replaceAll("paint0", "d_paint0")} />
 					</div>
 					<div class="hidden sm:contents">
-						<Fragment set:html={logoType} />
+						<Fragment set:html={logoType.replaceAll("paint0", "m_paint0")} />
 					</div>
 				</a>
 
 				<div class="ml-auto flex h-full items-center">
-					<a href="/blog" class="text-body-text no-underline"> Blog </a>
+					<a
+						href="/blog"
+						class="text-body-text no-underline dark:text-body-text-dark"
+					>
+						Blog
+					</a>
 				</div>
 			</div>
 		</header>
@@ -101,7 +112,7 @@ const w = prose ? "max-w-prose" : "max-w-content"
 		<slot />
 
 		<footer
-			class="mt-20 flex w-full grow justify-center border-t border-violet-400/25 bg-body-bg px-12"
+			class="mt-20 flex w-full grow justify-center border-t border-violet-500/75 bg-body-bg px-12 dark:border-violet-400/25 dark:bg-body-bg-dark"
 		>
 			<div class=`flex ${w} w-full items-center py-16`>
 				<div class="flex flex-col gap-2">

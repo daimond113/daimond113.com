@@ -39,23 +39,29 @@ const { Content } = await render()
 
 	<div class="flex w-full px-12">
 		<main
-			class="prose prose-main relative mx-auto w-full max-w-prose bg-body-bg"
+			class="prose prose-main relative mx-auto w-full max-w-prose bg-body-bg dark:prose-dark dark:bg-body-bg-dark"
 		>
 			<a href="/blog" class="flex items-center no-underline">
 				<ArrowLeft class="mr-2 size-6" />
 				Back to blog
 			</a>
 			<p>
-				<span class="text-alt-text">
+				<span class="text-alt-text dark:text-alt-text-dark">
 					Published on
-					<Time date={pubDate} class="font-bold text-body-text" />
+					<Time
+						date={pubDate}
+						class="font-bold text-body-text dark:text-body-text-dark"
+					/>
 				</span>
 				{
 					updatedDate && (
-						<span class="text-alt-text">
+						<span class="text-alt-text dark:text-alt-text-dark">
 							<br />
 							Updated on
-							<Time date={updatedDate} class="font-bold text-body-text" />
+							<Time
+								date={updatedDate}
+								class="font-bold text-body-text dark:text-body-text-dark"
+							/>
 						</span>
 					)
 				}

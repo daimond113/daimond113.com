@@ -44,7 +44,7 @@
 		}
 
 		ctx.clearRect(0, 0, canvas.width, canvas.height)
-		ctx.fillStyle = "#DCCCFF"
+		ctx.fillStyle = getComputedStyle(canvas).color
 
 		for (const circle of circles) {
 			const x = (circle.x / circle.z) * scale
@@ -74,5 +74,5 @@
 
 <canvas
 	id="star-background"
-	class="fixed left-0 top-0 -z-20 block h-screen w-full bg-transparent"
+	class="fixed left-0 top-0 -z-20 block h-screen w-full bg-transparent text-logo-text dark:text-logo-text-dark"
 	transition:persist></canvas>
