@@ -94,7 +94,11 @@ const w = prose ? "max-w-prose" : "max-w-content"
 						<Fragment set:html={logo.replaceAll("paint0", "d_paint0")} />
 					</div>
 					<div class="hidden sm:contents">
-						<Fragment set:html={logoType.replaceAll("paint0", "m_paint0")} />
+						<Fragment
+							set:html={logoType
+								.replaceAll('fill="#DBADFF"', 'fill="currentColor"')
+								.replaceAll("paint0", "m_paint0")}
+						/>
 					</div>
 				</a>
 

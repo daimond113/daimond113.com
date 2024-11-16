@@ -40,7 +40,7 @@ import logoSvg from '/logo.svg?raw';
 <div style="width: 250px" title="new logotype">
 import logotypeSvg from '/logotype.svg?raw';
 
-<Fragment set:html={logotypeSvg} />
+<Fragment set:html={logotypeSvg.replaceAll('fill="#DBADFF"', 'fill="currentColor"')} />
 </div>
 
 <div style="width: 250px" title="monochrome logo">
