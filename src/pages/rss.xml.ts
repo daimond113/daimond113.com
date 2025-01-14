@@ -25,7 +25,7 @@ export const GET: APIRoute = async ({ site }) => {
 			customData: post.data.updatedDate
 				? `<lastBuildDate>${post.data.updatedDate.toUTCString()}</lastBuildDate>`
 				: "",
-			link: `/blog/${post.slug}/`,
+			link: `/blog/${post.id}/`,
 		})),
 	})
 }
