@@ -36,7 +36,7 @@ blogPosts.sort(
 								listImage,
 								updatedDate,
 							},
-							slug,
+							id,
 						}) => (
 							<div class="flex">
 								<div class="hidden w-24 shrink-0 grow items-center pr-4 md:flex md:w-48 lg:w-72">
@@ -60,7 +60,7 @@ blogPosts.sort(
 								<div class="relative flex w-full items-center border-violet-600/80 py-2 md:border-l dark:border-violet-400/25">
 									<div class="absolute -left-2 top-1/2 z-10 hidden size-4 -translate-y-1/2 rounded-full bg-violet-900 md:block dark:bg-violet-400" />
 									<a
-										href={`/blog/${slug}`}
+										href={`/blog/${id}`}
 										class="relative z-10 inline-block w-full overflow-hidden rounded-md border border-violet-500/75 p-4 text-body-text no-underline md:ml-4 dark:border-violet-400/25 dark:text-body-text-dark"
 									>
 										<article>

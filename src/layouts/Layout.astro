@@ -5,7 +5,7 @@ import logoType from "../../public/logotype.svg?raw"
 import logo from "../../public/logo.svg?raw"
 import IconButton from "../components/IconButton.astro"
 import StarBackground from "../components/StarBackground.astro"
-import { ViewTransitions } from "astro:transitions"
+import { ClientRouter } from "astro:transitions"
 
 import {
 	siDiscord,
@@ -73,7 +73,7 @@ const w = prose ? "max-w-prose" : "max-w-content"
 
 		<slot name="head" />
 
-		<ViewTransitions />
+		<ClientRouter />
 	</head>
 
 	<body
