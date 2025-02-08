@@ -16,7 +16,7 @@ const { title, svg, link, class: className, noFill } = Astro.props
 	href={link}
 	{title}
 	class={twMerge(
-		"bg-violet-300 dark:bg-violet-900 text-body-text dark:text-body-text-dark p-3 rounded-md inline-block w-14 flex-shrink-0 hover:scale-[1.15] hover:brightness-125 transition-all",
+		"bg-violet-300 dark:bg-violet-900 text-body-text dark:text-body-text-dark p-3 rounded-md inline-block w-14 shrink-0 hover:scale-[1.15] hover:brightness-125 transition-all",
 		!noFill && "[&>svg]:fill-current",
 		className,
 	)}

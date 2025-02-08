@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config"
 import mdx from "@astrojs/mdx"
 import sitemap from "@astrojs/sitemap"
-import tailwind from "@astrojs/tailwind"
+import tailwind from "@tailwindcss/vite"
 
 export default defineConfig({
 	site: "https://www.daimond113.com",
@@ -10,5 +10,8 @@ export default defineConfig({
 			theme: "dracula",
 		},
 	},
-	integrations: [mdx(), sitemap(), tailwind()],
+	vite: {
+		plugins: [tailwind()],
+	},
+	integrations: [mdx(), sitemap()],
 })

@@ -1,47 +1,6 @@
-import defaultTheme from "tailwindcss/defaultTheme"
-
-/** @type {import('tailwindcss').Config} */
 export default {
-	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	theme: {
 		extend: {
-			colors: {
-				body: {
-					bg: {
-						DEFAULT: "#d5c7ff",
-						dark: "#08060e",
-					},
-					text: {
-						DEFAULT: "#461C9C",
-						dark: "#d2bcff",
-					},
-					link: {
-						DEFAULT: "#043279",
-						dark: "#b18aff",
-					},
-				},
-				logo: {
-					text: {
-						DEFAULT: "#29186A",
-						dark: "#DBADFF",
-					},
-				},
-				alt: {
-					text: {
-						DEFAULT: "#140531",
-						dark: "#a68cd9",
-					},
-				},
-			},
-			width: {
-				content: "60rem",
-			},
-			maxWidth: {
-				content: "60rem",
-			},
-			fontFamily: {
-				sans: ["'DM Sans Variable'", ...defaultTheme.fontFamily.sans],
-			},
 			typography: ({ theme }) => ({
 				main: {
 					css: {

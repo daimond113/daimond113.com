@@ -1,7 +1,30 @@
-a {
-	@apply text-body-link underline underline-offset-2 dark:text-body-link-dark;
+@import "tailwindcss";
+/* TailwindCSS v4 doesn't do well with typography configuration */
+@config "../tailwind.config.mjs";
+
+@theme {
+	--font-sans: "DM Sans Variable", sans-serif;
+
+	--color-body-bg: #d5c7ff;
+	--color-body-bg-dark: #08060e;
+	--color-body-text: #461c9c;
+	--color-body-text-dark: #d2bcff;
+	--color-body-link: #043279;
+	--color-body-link-dark: #b18aff;
+	--color-logo-text: #29186a;
+	--color-logo-text-dark: #dbadff;
+	--color-alt-text: #140531;
+	--color-alt-text-dark: #a68cd9;
+
+	--container-content: 60rem;
 }
 
-* {
-	@apply scroll-m-14;
+@layer base {
+	a {
+		@apply text-body-link dark:text-body-link-dark underline underline-offset-2;
+	}
+
+	* {
+		@apply scroll-m-14;
+	}
 }
