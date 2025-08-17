@@ -7,7 +7,7 @@ import {
 	siNotepadplusplus,
 	siHtml5,
 	siJavascript,
-	siCss3,
+	siCss,
 	siNodedotjs,
 	siNpm,
 	siReact,
@@ -31,7 +31,6 @@ import {
 	siMysql,
 	siMariadb,
 	siCloudflare,
-	siAmazons3,
 	siCplusplus,
 	siPhp,
 	siPhpmyadmin,
@@ -59,7 +58,7 @@ import {
 	}
 
 	.rainbow > div {
-		@apply mx-auto w-full max-w-content;
+		@apply max-w-content mx-auto w-full;
 	}
 
 	.rainbow > div * {
@@ -79,51 +78,53 @@ import {
 	<main class="flex w-full flex-col">
 		<div class="flex w-full px-12">
 			<div
-				class="mx-auto flex max-w-content flex-col gap-12 bg-body-bg dark:bg-body-bg-dark"
+				class="max-w-content bg-body-bg dark:bg-body-bg-dark mx-auto flex flex-col gap-12"
 			>
 				<section class="widthless text-balance">
 					<h1 class="mb-2 text-5xl font-bold">
 						Hello! I'm <span
-							class="font-normal text-logo-text dark:text-logo-text-dark"
+							class="text-logo-text dark:text-logo-text-dark font-normal"
 							>daimond113</span
 						>
 					</h1>
 					<p class="text-3xl font-extralight">
-						I'm a passionate programmer ready to try new technologies and learn
-						new things
+						I'm a passionate programmer ready to try new
+						technologies and learn new things
 					</p>
 				</section>
 				<section>
 					<h2>About me</h2>
 					<p>
-						I come from Poland, and coding has been a huge part of my life for
-						over 5 years.
+						I come from Poland, and coding has been a huge part of
+						my life for over 5 years.
 					</p>
 					<p>
-						In school, I was always the "computer guy", and that really
-						encouraged me to continue learning and improving my skills, whether
-						it be hardware or software.
+						In school, I was always the "computer guy", and that
+						really encouraged me to continue learning and improving
+						my skills, whether it be hardware or software.
 					</p>
 					<p>
-						I'm good at learning languages. I've always excelled in English, and
-						I'm currently learning German. In programming, I can understand the
-						syntax of new languages very quickly.
+						I'm good at learning languages. I've always excelled in
+						English, and I'm currently learning German. In
+						programming, I can understand the syntax of new
+						languages very quickly.
 					</p>
 				</section>
 				<section>
 					<h2>What I do</h2>
 					<p>
-						I'm a full-stack developer, which means I can work on both the
-						frontend and backend of a project. This allows me to create a
-						complete product from start to finish.
+						I'm a full-stack developer, which means I can work on
+						both the frontend and backend of a project. This allows
+						me to create a complete product from start to finish.
 					</p>
 				</section>
 				<section class="widthless">
 					<h2>Technologies I've used</h2>
 					<p class="mb-4! max-w-prose">
-						This is a list of technologies I've used and/or am using. I'm always
-						looking to learn more, so this list is always growing. This list is
-						sorted by when I first used the technology.
+						This is a list of technologies I've used and/or am
+						using. I'm always looking to learn more, so this list is
+						always growing. This list is sorted by when I first used
+						the technology.
 					</p>
 					<div class="flex w-full flex-wrap gap-2">
 						<IconButton
@@ -135,14 +136,17 @@ import {
 							link="https://developer.mozilla.org/en-US/docs/Web/HTML"
 						/>
 						<IconButton
-							{...siCss3}
+							{...siCss}
 							link="https://developer.mozilla.org/en-US/docs/Web/CSS"
 						/>
 						<IconButton
 							{...siJavascript}
 							link="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
 						/>
-						<IconButton {...siNodedotjs} link="https://nodejs.org" />
+						<IconButton
+							{...siNodedotjs}
+							link="https://nodejs.org"
+						/>
 						<IconButton {...siNpm} link="https://npmjs.com" />
 						<IconButton {...siReact} link="https://react.dev" />
 						<IconButton {...siGit} link="https://git-scm.com" />
@@ -153,25 +157,48 @@ import {
 						/>
 						<IconButton {...siYarn} link="https://yarnpkg.com" />
 						<IconButton {...siUbuntu} link="https://ubuntu.com" />
-						<IconButton {...siPopos} link="https://pop.system76.com" />
+						<IconButton
+							{...siPopos}
+							link="https://pop.system76.com"
+						/>
 						<IconButton {...siLua} link="https://www.lua.org" />
-						<IconButton {...siRobloxstudio} link="https://www.roblox.com" />
+						<IconButton
+							{...siRobloxstudio}
+							link="https://www.roblox.com"
+						/>
 						<IconButton {...siPnpm} link="https://pnpm.io" />
 						<IconButton {...siAstro} link="https://astro.build" />
 						<IconButton {...siSolid} link="https://solidjs.com" />
-						<IconButton {...siRust} link="https://www.rust-lang.org" />
-						<IconButton {...siArchlinux} link="https://archlinux.org" />
-						<IconButton {...siKotlin} link="https://kotlinlang.org" />
+						<IconButton
+							{...siRust}
+							link="https://www.rust-lang.org"
+						/>
+						<IconButton
+							{...siArchlinux}
+							link="https://archlinux.org"
+						/>
+						<IconButton
+							{...siKotlin}
+							link="https://kotlinlang.org"
+						/>
 						<IconButton {...siGradle} link="https://gradle.org" />
 						<IconButton {...siActix} link="https://actix.rs" />
 						<IconButton {...siSvelte} link="https://svelte.dev" />
 						<IconButton {...siMysql} link="https://www.mysql.com" />
 						<IconButton {...siMariadb} link="https://mariadb.org" />
-						<IconButton {...siCloudflare} link="https://www.cloudflare.com" />
-						<IconButton {...siAmazons3} link="https://aws.amazon.com/s3" />
-						<IconButton {...siCplusplus} link="https://isocpp.org" />
+						<IconButton
+							{...siCloudflare}
+							link="https://www.cloudflare.com"
+						/>
+						<IconButton
+							{...siCplusplus}
+							link="https://isocpp.org"
+						/>
 						<IconButton {...siPhp} link="https://www.php.net" />
-						<IconButton {...siPhpmyadmin} link="https://www.phpmyadmin.net" />
+						<IconButton
+							{...siPhpmyadmin}
+							link="https://www.phpmyadmin.net"
+						/>
 						<IconButton {...siBun} link="https://bun.sh" />
 						<IconButton {...siNixos} link="https://nixos.org" />
 					</div>
@@ -179,8 +206,8 @@ import {
 				<section>
 					<h2>My stuff</h2>
 					<p>
-						My "main" projects are listed here by their primary colour. More
-						minor projects can be found in my <a
+						My "main" projects are listed here by their primary
+						colour. More minor projects can be found in my <a
 							href="https://github.com/daimond113"
 							target="_blank">GitHub</a
 						> repositories.
@@ -198,11 +225,13 @@ import {
 				<div>
 					<h2>pesde</h2>
 					<p>
-						pesde is a package manager for the Luau programming language,
-						supporting multiple runtimes including Roblox and Lune.
+						pesde is a package manager for the Luau programming
+						language, supporting multiple runtimes including Roblox
+						and Lune.
 					</p>
 					<p>
-						It's built with Rust and uses a GitHub repository as its index.
+						It's built with Rust and uses a GitHub repository as its
+						index.
 					</p>
 					<p>
 						You can find the source code on <a
@@ -212,8 +241,8 @@ import {
 							href="https://pesde.daimond113.com"
 							class="underline"
 							target="_blank">website</a
-						> to see the available packages and documentation. You can also look
-						at the raw <a
+						> to see the available packages and documentation. You can
+						also look at the raw <a
 							href="https://github.com/daimond113/pesde-index"
 							target="_blank">index</a
 						> for a more detailed look at how it works.
@@ -228,16 +257,21 @@ import {
 			<div class="rainbow bg-green-600 dark:bg-green-800">
 				<div>
 					<h2>biasdo</h2>
-					<p>biasdo is an open-source chat application that I'm working on.</p>
 					<p>
-						It's built with a Rust backend using Actix and a Svelte frontend.
+						biasdo is an open-source chat application that I'm
+						working on.
+					</p>
+					<p>
+						It's built with a Rust backend using Actix and a Svelte
+						frontend.
 					</p>
 					<p>
 						You can find the source code on <a
 							href="https://github.com/daimond113/biasdo"
 							target="_blank">GitHub</a
-						>. Visit the <a href="https://biasdo.daimond113.com" target="_blank"
-							>website</a
+						>. Visit the <a
+							href="https://biasdo.daimond113.com"
+							target="_blank">website</a
 						> to see it in action.
 					</p>
 				</div>
