@@ -1,11 +1,10 @@
 {
   stdenv,
   bun2nix,
-  pkgs,
+  lib,
   ...
 }:
 let
-  lib = pkgs.lib;
   package = lib.importJSON ./package.json;
 in
 stdenv.mkDerivation {

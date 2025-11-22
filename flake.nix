@@ -35,7 +35,7 @@
     in
     {
       packages = eachSystem (system: {
-        default = pkgsFor.${system}.callPackage ./default.nix { pkgs = pkgsFor.${system}; };
+        default = pkgsFor.${system}.callPackage ./default.nix { };
       });
 
       devShells = eachSystem (system: {
