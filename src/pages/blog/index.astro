@@ -16,11 +16,17 @@ blogPosts.sort(
 
 <Layout title="Blog - daimond113" description={BLOG_TAGLINE}>
 	<div class="w-full px-12">
-		<main class="mx-auto w-full max-w-content bg-body-bg dark:bg-body-bg-dark">
+		<main
+			class="max-w-content bg-body-bg dark:bg-body-bg-dark mx-auto w-full"
+		>
 			<section class="mb-4">
 				<div class="flex items-center gap-4">
 					<h1 class="inline text-4xl font-bold">Blog</h1>
-					<IconButton {...siRss} link="/rss.xml" class="inline-block w-8 p-2" />
+					<IconButton
+						{...siRss}
+						link="/rss.xml"
+						class="inline-block w-8 p-2"
+					/>
 				</div>
 				<p>{BLOG_TAGLINE}</p>
 			</section>
@@ -45,43 +51,57 @@ blogPosts.sort(
 											<span class="text-alt-text dark:text-alt-text-dark">
 												Published on{" "}
 											</span>
-											<Time date={pubDate} class="font-bold" />
+											<Time
+												date={pubDate}
+												class="font-bold"
+											/>
 										</p>
 										{updatedDate && (
 											<p>
 												<span class="text-alt-text dark:text-alt-text-dark">
 													Updated on{" "}
 												</span>
-												<Time date={updatedDate} class="font-bold" />
+												<Time
+													date={updatedDate}
+													class="font-bold"
+												/>
 											</p>
 										)}
 									</div>
 								</div>
 								<div class="relative flex w-full items-center border-violet-600/80 py-2 md:border-l dark:border-violet-400/25">
-									<div class="absolute -left-2 top-1/2 z-10 hidden size-4 -translate-y-1/2 rounded-full bg-violet-900 md:block dark:bg-violet-400" />
+									<div class="absolute top-1/2 -left-2 z-10 hidden size-4 -translate-y-1/2 rounded-full bg-violet-900 md:block dark:bg-violet-400" />
 									<a
 										href={`/blog/${id}`}
-										class="relative z-10 inline-block w-full overflow-hidden rounded-md border border-violet-500/75 p-4 text-body-text no-underline md:ml-4 dark:border-violet-400/25 dark:text-body-text-dark"
+										class="text-body-text dark:text-body-text-dark relative z-10 inline-block w-full overflow-hidden rounded-md border border-violet-500/75 p-4 no-underline md:ml-4 dark:border-violet-400/25"
 									>
 										<article>
-											<div class="mb-2 text-sm text-alt-text md:hidden dark:text-alt-text-dark">
+											<div class="text-alt-text dark:text-alt-text-dark mb-2 text-sm md:hidden">
 												<div>
-													<Time date={pubDate} class="font-bold" />
+													<Time
+														date={pubDate}
+														class="font-bold"
+													/>
 												</div>
 												{updatedDate && (
 													<div>
 														Updated on{" "}
-														<Time date={updatedDate} class="font-bold" />
+														<Time
+															date={updatedDate}
+															class="font-bold"
+														/>
 													</div>
 												)}
 											</div>
-											<h2 class="text-xl font-semibold">{title}</h2>
+											<h2 class="text-xl font-semibold">
+												{title}
+											</h2>
 											<p>{description}</p>
 											{(listImage ?? heroImage) && (
 												<img
 													src={listImage ?? heroImage}
 													alt={`Hero image for ${title}`}
-													class="absolute right-0 top-1/2 z-0 inline-block w-2/3 -translate-y-1/2 text-right"
+													class="absolute top-1/2 right-0 z-0 inline-block w-2/3 -translate-y-1/2 text-right"
 													style="-webkit-mask-image: linear-gradient(to left, rgb(0 0 0 / 1), rgb(0 0 0 / 0)); mask-image: linear-gradient(to left, rgb(0 0 0 / 1), rgb(0 0 0 / 0));"
 												/>
 											)}

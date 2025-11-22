@@ -22,7 +22,10 @@ const { title, description, heroImage, listImage, pubDate, updatedDate } =
 <Layout {title} {description} image={heroImage || listImage} prose>
 	<Fragment slot="head">
 		<meta property="og:type" content="article" />
-		<meta property="article:published_time" content={pubDate.toISOString()} />
+		<meta
+			property="article:published_time"
+			content={pubDate.toISOString()}
+		/>
 		{
 			updatedDate && (
 				<meta
@@ -37,7 +40,7 @@ const { title, description, heroImage, listImage, pubDate, updatedDate } =
 
 	<div class="flex w-full px-12">
 		<main
-			class="prose prose-main relative mx-auto w-full max-w-prose bg-body-bg dark:prose-dark dark:bg-body-bg-dark"
+			class="prose prose-main bg-body-bg dark:prose-dark dark:bg-body-bg-dark relative mx-auto w-full max-w-prose"
 		>
 			<a href="/blog" class="flex items-center no-underline">
 				<ArrowLeft class="mr-2 size-6" />
@@ -48,7 +51,7 @@ const { title, description, heroImage, listImage, pubDate, updatedDate } =
 					Published on
 					<Time
 						date={pubDate}
-						class="font-bold text-body-text dark:text-body-text-dark"
+						class="text-body-text dark:text-body-text-dark font-bold"
 					/>
 				</span>
 				{
@@ -58,7 +61,7 @@ const { title, description, heroImage, listImage, pubDate, updatedDate } =
 							Updated on
 							<Time
 								date={updatedDate}
-								class="font-bold text-body-text dark:text-body-text-dark"
+								class="text-body-text dark:text-body-text-dark font-bold"
 							/>
 						</span>
 					)
