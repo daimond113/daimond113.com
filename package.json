@@ -8,40 +8,33 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "postinstall": "bun2nix -o bun.nix"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.5",
-    "@astrojs/mdx": "4.3.12",
-    "@astrojs/rss": "4.0.14",
+    "@astrojs/mdx": "6.0.1",
+    "@astrojs/rss": "4.0.18",
     "@astrojs/sitemap": "^3.6.0",
     "@astrojs/tailwind": "6.0.2",
+    "astro": "6.4.2",
     "@fontsource-variable/dm-sans": "^5.2.8",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.17",
-    "astro": "5.16.0",
-    "lucide-astro": "^0.554.0",
-    "simple-icons": "^15.21.0",
+    "@lucide/astro": "^1.17.0",
+    "simple-icons": "^16.21.0",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
-    "bun2nix": "^2.0.1",
-    "eslint": "^9.39.1",
+    "eslint": "^10.4.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^1.5.0",
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-tailwindcss": "^3.18.2",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.7.1",
-    "typescript": "^5.9.3",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.47.0"
-  },
-  "trustedDependencies": [
-    "@tailwindcss/oxide",
-    "esbuild",
-    "sharp"
-  ]
+  }
 }

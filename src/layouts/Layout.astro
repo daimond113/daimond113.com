@@ -1,6 +1,6 @@
 ---
 import "../global.css"
-import "@fontsource-variable/dm-sans"
+import "@fontsource-variable/dm-sans/wght-italic.css"
 import logoType from "../../public/logotype.svg?raw"
 import logo from "../../public/logo.svg?raw"
 import IconButton from "../components/IconButton.astro"
@@ -35,17 +35,14 @@ const w = prose ? "max-w-prose" : "max-w-content"
 <!doctype html>
 <html lang="en">
 	<head>
-		<!-- Global Metadata -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 
-		<!-- Canonical URL -->
 		<link rel="canonical" href={canonicalURL} />
 
-		<!-- Primary Meta Tags -->
 		<title>{title}</title>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />

@@ -1,28 +1,33 @@
 {
   stdenv,
-  bun2nix,
+  nodejs,
+  pnpm,
+  pnpmConfigHook,
+  fetchPnpmDeps,
   lib,
   ...
 }:
 let
   package = lib.importJSON ./package.json;
 in
-stdenv.mkDerivation {
+stdenv.mkDerivation (finalAttrs: {
   pname = package.name;
   version = package.version;
 
   src = ./.;
 
   nativeBuildInputs = [
-    bun2nix.hook
+    nodejs
+    pnpm
+    pnpmConfigHook
   ];
 
-  bunDeps = bun2nix.fetchBunDeps {
-    bunNix = ./bun.nix;
-  };
-
   buildPhase = ''
-    bun run build
+    runHook preBuild
+
+    pnpm build
+
+    runHook postBuild
   '';
 
   installPhase = ''
@@ -30,4 +35,10 @@ stdenv.mkDerivation {
 
     cp -R ./dist $out
   '';
-}
+
+  pnpmDeps = fetchPnpmDeps {
+    inherit (finalAttrs) pname version src;
+    fetcherVersion = 3;
+    hash = "sha256-UER6Or1QGHuHIoWIGbSzBdRxjV70Gdq3I/4I6P5BB9E=";
+  };
+})

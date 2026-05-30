@@ -2,14 +2,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default";
-
-    bun2nix = {
-      url = "github:nix-community/bun2nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-      };
-    };
   };
   nixConfig = {
     extra-substituters = [
@@ -29,7 +21,6 @@
         system:
         import inputs.nixpkgs {
           inherit system;
-          overlays = [ inputs.bun2nix.overlays.default ];
         }
       );
     in
@@ -41,12 +32,12 @@
       devShells = eachSystem (system: {
         default = pkgsFor.${system}.mkShell {
           packages = with pkgsFor.${system}; [
-            bun
-            bun2nix
+            nodejs
+            pnpm
           ];
 
           shellHook = ''
-            bun install --frozen-lockfile
+            pnpm install
           '';
         };
       });
