@@ -1,6 +1,5 @@
 @import "tailwindcss";
-/* TailwindCSS v4 doesn't do well with typography configuration */
-@config "../tailwind.config.mjs";
+@plugin "@tailwindcss/typography";
 
 @theme {
 	--font-sans: "DM Sans Variable", sans-serif;
@@ -27,4 +26,40 @@
 	* {
 		@apply scroll-m-14;
 	}
+}
+
+@utility prose-main {
+	--tw-prose-body: var(--color-body-text);
+	--tw-prose-headings: var(--color-body-text);
+	--tw-prose-lead: var(--color-violet-700);
+	--tw-prose-links: var(--color-body-link);
+	--tw-prose-bold: var(--color-violet-400);
+	--tw-prose-counters: var(--color-violet-800);
+	--tw-prose-bullets: var(--color-violet-800);
+	--tw-prose-hr: var(--color-violet-100);
+	--tw-prose-quotes: var(--color-violet-400);
+	--tw-prose-quoteborders: var(--color-violet-400);
+	--tw-prose-captions: var(--color-violet-800);
+	--tw-prose-thborders: var(--color-violet-800);
+	--tw-prose-tdborders: var(--color-violet-800);
+	--tw-prose-code: var(--color-alt-text);
+	--tw-prose-kbd: var(--color-alt-text);
+}
+
+@utility prose-dark {
+	--tw-prose-body: var(--color-body-text-dark);
+	--tw-prose-headings: var(--color-body-text-dark);
+	--tw-prose-lead: var(--color-violet-400);
+	--tw-prose-links: var(--color-body-link-dark);
+	--tw-prose-bold: var(--color-violet-400);
+	--tw-prose-counters: var(--color-violet-300);
+	--tw-prose-bullets: var(--color-violet-300);
+	--tw-prose-hr: var(--color-violet-100);
+	--tw-prose-quotes: var(--color-violet-400);
+	--tw-prose-quoteborders: var(--color-violet-400);
+	--tw-prose-captions: var(--color-violet-300);
+	--tw-prose-thborders: var(--color-violet-300);
+	--tw-prose-tdborders: var(--color-violet-300);
+	--tw-prose-code: var(--color-alt-text-dark);
+	--tw-prose-kbd: var(--color-alt-text-dark);
 }
