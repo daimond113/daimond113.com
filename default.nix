@@ -1,13 +1,14 @@
 {
   stdenv,
   nodejs,
-  pnpm,
+  pnpm_11,
   pnpmConfigHook,
   fetchPnpmDeps,
   lib,
   ...
 }:
 let
+  pnpm = pnpm_11;
   package = lib.importJSON ./package.json;
 in
 stdenv.mkDerivation (finalAttrs: {
@@ -38,6 +39,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
+    inherit pnpm;
     fetcherVersion = 4;
     hash = "sha256-W6T1mEtsNUSYkEVg97H4UgxZwXoQx2CykeJCjpVG0jQ=";
   };
